@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent Organ Hub | 招募海报</title>
+  <style>
+    /* Print-ready poster: A4 portrait */
+    :root{
+      --bg:#070A12;
+      --ink:#EAF0FF;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.55);
+      --line:rgba(234,240,255,.14);
+      --accent:#6CF0FF;
+      --accent2:#B4FF7A;
+      --warn:#FFB86B;
+      --card:rgba(255,255,255,.06);
+      --shadow:0 24px 90px rgba(0,0,0,.55);
+      --radius:18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    @page { size: A4 portrait; margin: 12mm; }
+
+    body{
+      margin:0;
+      background:#0b1020;
+      font-family:var(--sans);
+      color:var(--ink);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .poster{
+      width:210mm;
+      height:297mm;
+      background: radial-gradient(1200px 900px at 10% 0%, rgba(108,240,255,.14), transparent 60%),
+                  radial-gradient(900px 700px at 100% 30%, rgba(180,255,122,.12), transparent 55%),
+                  radial-gradient(900px 700px at 60% 110%, rgba(255,184,107,.10), transparent 55%),
+                  linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01)),
+                  var(--bg);
+      border:1px solid rgba(234,240,255,.10);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .noise{
+      position:absolute; inset:0;
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" stitchTiles="stitch"/></filter><rect width="240" height="240" filter="url(%23n)" opacity=".16"/></svg>');
+      mix-blend-mode:overlay;
+      opacity:.35;
+      pointer-events:none;
+    }
+
+    .grid{
+      position:absolute; inset:-2px;
+      background:
+        linear-gradient(to right, rgba(234,240,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(234,240,255,.05) 1px, transparent 1px);
+      background-size: 26px 26px;
+      mask-image: radial-gradient(closest-side at 20% 0%, rgba(0,0,0,1), rgba(0,0,0,0) 70%);
+      opacity:.65;
+      pointer-events:none;
+    }
+
+    .wrap{ padding:18mm 16mm; position:relative; z-index:2; height:100%; display:flex; flex-direction:column; gap:14mm; }
+
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12mm;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:4mm;
+      flex:1;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.05);
+      font-size:12px;
+      letter-spacing:.6px;
+      color:var(--muted);
+      width:fit-content;
+    }
+
+    .dot{ width:8px; height:8px; border-radius:999px; background:var(--accent); box-shadow:0 0 20px rgba(108,240,255,.55); }
+
+    h1{
+      margin:0;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.8px;
+    }
+
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+      max-width:86mm;
+    }
+
+    .qr{
+      width:46mm;
+      border-radius:18px;
+      border:1px dashed rgba(234,240,255,.28);
+      background:rgba(255,255,255,.03);
+      padding:12px;
+    }
+    .qrBox{
+      height:36mm;
+      border-radius:14px;
+      background:linear-gradient(180deg, rgba(234,240,255,.08), rgba(234,240,255,.02));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(234,240,255,.55);
+      font-size:12px;
+      font-family:var(--mono);
+    }
+    .qrNote{ margin-top:8px; color:var(--muted2); font-size:11px; line-height:1.45; }
+
+    .sectionGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap:10mm;
+      flex:1;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid rgba(234,240,255,.10);
+      border-radius:var(--radius);
+      padding:14px 14px;
+    }
+
+    .kicker{
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.8px;
+      color:rgba(234,240,255,.62);
+      margin-bottom:10px;
+      text-transform:uppercase;
+    }
+
+    .lead{
+      font-size:16px;
+      line-height:1.55;
+      color:rgba(234,240,255,.90);
+      margin:0;
+    }
+
+    ul{ margin:10px 0 0 18px; padding:0; }
+    li{ margin:8px 0; color:rgba(234,240,255,.78); line-height:1.55; }
+    b{ color:rgba(234,240,255,.95); }
+
+    .pillRow{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .pill{ padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.04); font-size:12px; color:rgba(234,240,255,.74); }
+    .pill.accent{ border-color: rgba(108,240,255,.35); color: rgba(108,240,255,.95); background: rgba(108,240,255,.08); }
+    .pill.accent2{ border-color: rgba(180,255,122,.30); color: rgba(180,255,122,.95); background: rgba(180,255,122,.08); }
+    .pill.warn{ border-color: rgba(255,184,107,.35); color: rgba(255,184,107,.95); background: rgba(255,184,107,.08); }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10mm;
+    }
+
+    .mini{
+      font-size:12px;
+      color:rgba(234,240,255,.62);
+      line-height:1.55;
+      margin-top:10px;
+    }
+
+    .footer{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:10mm;
+      padding-top:10mm;
+      border-top:1px solid rgba(234,240,255,.10);
+    }
+
+    .footerLeft{
+      max-width:130mm;
+    }
+
+    .cta{
+      font-size:14px;
+      color:rgba(234,240,255,.88);
+      line-height:1.55;
+      margin:0;
+    }
+
+    .contact{
+      margin-top:8px;
+      font-family:var(--mono);
+      font-size:12px;
+      color:rgba(234,240,255,.70);
+    }
+
+    .tag{
+      font-family:var(--mono);
+      font-size:11px;
+      color:rgba(234,240,255,.55);
+      text-align:right;
+      white-space:nowrap;
+    }
+
+    /* Mobile preview */
+    @media (max-width: 860px){
+      body{ padding:10px; }
+      .poster{ width:min(100%, 560px); height:auto; }
+      .wrap{ padding:18px; }
+      .sectionGrid{ grid-template-columns:1fr; }
+      .qr{ width:100%; }
+      h1{ font-size:34px; }
+      .footer{ flex-direction:column; align-items:flex-start; }
+      .tag{ text-align:left; }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <div class="grid"></div>
+    <div class="noise"></div>
+
+    <div class="wrap">
+      <section class="top">
+        <div class="brand">
+          <div class="badge"><span class="dot"></span> Hackathon Recruiting · Agent Organ Hub</div>
+          <h1>让 OpenClaw<br/>从手机里“长出来”</h1>
+          <p class="subtitle">
+            一个现实世界的<strong>外置器官</strong>：能看、能听、能执行。<br/>
+            多源输入 → 意图理解 → 真实动作 → 声/光/屏的空间化交付。
+          </p>
+          <div class="pillRow">
+            <span class="pill accent">L1 自动记录</span>
+            <span class="pill accent2">L2 建议输出</span>
+            <span class="pill warn">L3 白名单自动执行</span>
+          </div>
+        </div>
+
+        <div class="qr">
+          <div class="qrBox">QR / Link<br/>放你的报名或群链接</div>
+          <div class="qrNote">
+            建议：微信群/飞书群/报名表链接。<br/>
+            也可以放 GitHub：agent-organ。
+          </div>
+        </div>
+      </section>
+
+      <section class="sectionGrid">
+        <div class="split">
+          <div class="card">
+            <div class="kicker">Background / 痛点</div>
+            <p class="lead">
+              手机很强，但在现实场景里往往<strong>不够低摩擦</strong>：你很难在走路、开会、做事时频繁掏手机、解锁、切 App。
+              结果就是：<strong>遗漏</strong>、<strong>切换成本高</strong>、<strong>输出缺少陪伴与空间感</strong>。
+            </p>
+            <ul>
+              <li><b>输入端</b>：语音/照片/文件/事件经常“来不及记、记不全”。</li>
+              <li><b>输出端</b>：提醒都挤在屏幕里，缺少声/光/屏/动作带来的“存在感反馈”。</li>
+              <li><b>执行端</b>：不是“能建议”，而是要“能闭环”——从意图到完成。</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="kicker">Scenes / 场景脑暴（精选）</div>
+            <ul>
+              <li><b>生活</b>：一句“我想专注” → 灯光进入 focus 场景 + 语音报 Top1 + 自动建 30min 番茄钟。</li>
+              <li><b>厨房指导</b>：拍一下食材 → 语音分步指导 + 屏幕 checklist（可选 AR）。</li>
+              <li><b>工作质控（加分项）</b>：会议结束“总结一下” → 输出一致点/分歧点/行动项，并可回放审计。</li>
+              <li><b>医疗（严肃版）</b>：按键采集 → 结构化记录 → 风险升级提醒 → 全链路可审计。</li>
+            </ul>
+            <div class="mini">
+              注：MVP 先做 2 个场景打穿；其余作为路线图。
+            </div>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <div class="kicker">Tech Route / 技术路线</div>
+            <ul>
+              <li><b>感知</b>：VisionClaw 思路（手机/眼镜音频+低帧率视觉）→ Gemini Live 实时理解。</li>
+              <li><b>执行</b>：OpenClaw 作为工具中枢（消息/日程/搜索/自动化）。</li>
+              <li><b>物理输出</b>：Home Assistant / Matter / MQTT 作为总线，驱动灯/空调/插座等。</li>
+              <li><b>闭环</b>：事件→建议→确认→执行→回放（trace）→下次更准。</li>
+            </ul>
+            <div class="pillRow">
+              <span class="pill">Voice Head</span>
+              <span class="pill">Light Head</span>
+              <span class="pill">Screen Head</span>
+              <span class="pill">Action Head</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="kicker">Recruiting / 招募队友</div>
+            <ul>
+              <li><b>iOS/Android</b>：语音/相机采集、快捷入口、TTS 播报</li>
+              <li><b>全栈/后端</b>：事件网关、日志回放、技能编排、可靠性</li>
+              <li><b>硬件/IoT</b>：Home Assistant/MQTT、设备控制、灯带/小屏/传感器</li>
+              <li><b>设计/交互</b>：灯光语言、状态反馈、demo 叙事</li>
+              <li><b>产品/PM</b>：场景选择、验收指标、隐私边界与话术</li>
+            </ul>
+            <div class="mini">
+              我们的原则：先跑通闭环（手机 C）→ 再加穿戴 BLE（A）。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="footer">
+        <div class="footerLeft">
+          <p class="cta"><b>想一起把 AI 拉进物理世界吗？</b>来做一个能看、能听、能执行、还能“有存在感”的 Agent Organ。</p>
+          <div class="contact">联系：把你的微信/邮箱/群链接填到右上角二维码区。</div>
+        </div>
+        <div class="tag">Agent Organ Hub · VisionClaw × OpenClaw · Privacy by Design</div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
