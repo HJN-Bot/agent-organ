@@ -7,17 +7,20 @@
   <style>
     /* Print-ready poster: A4 portrait */
     :root{
-      --bg:#070A12;
-      --ink:#EAF0FF;
-      --muted:rgba(234,240,255,.72);
-      --muted2:rgba(234,240,255,.55);
-      --line:rgba(234,240,255,.14);
-      --accent:#6CF0FF;
-      --accent2:#B4FF7A;
-      --warn:#FFB86B;
-      --card:rgba(255,255,255,.06);
-      --shadow:0 24px 90px rgba(0,0,0,.55);
+      --paper:#ffffff;
+      --ink:#0b0f1a;
+      --muted:rgba(11,15,26,.68);
+      --muted2:rgba(11,15,26,.55);
+      --line:rgba(11,15,26,.12);
+      --card:rgba(255,255,255,.92);
+      --shadow:0 18px 60px rgba(0,0,0,.10);
       --radius:18px;
+
+      /* tech accents (use sparingly) */
+      --accent:#2F6BFF;     /* electric blue */
+      --accent2:#00B8A9;    /* teal */
+      --warn:#FF7A18;       /* orange */
+
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
     }
@@ -26,7 +29,7 @@
 
     body{
       margin:0;
-      background:#0b1020;
+      background:#f3f5fb;
       font-family:var(--sans);
       color:var(--ink);
       display:flex;
@@ -38,12 +41,12 @@
     .poster{
       width:210mm;
       height:297mm;
-      background: radial-gradient(1200px 900px at 10% 0%, rgba(108,240,255,.14), transparent 60%),
-                  radial-gradient(900px 700px at 100% 30%, rgba(180,255,122,.12), transparent 55%),
-                  radial-gradient(900px 700px at 60% 110%, rgba(255,184,107,.10), transparent 55%),
-                  linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01)),
-                  var(--bg);
-      border:1px solid rgba(234,240,255,.10);
+      background:
+        radial-gradient(900px 680px at 15% 0%, rgba(47,107,255,.10), transparent 60%),
+        radial-gradient(760px 520px at 100% 20%, rgba(0,184,169,.10), transparent 55%),
+        radial-gradient(760px 520px at 60% 110%, rgba(255,122,24,.08), transparent 58%),
+        linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,1));
+      border:1px solid rgba(11,15,26,.10);
       border-radius:24px;
       box-shadow:var(--shadow);
       position:relative;
@@ -52,8 +55,8 @@
 
     .noise{
       position:absolute; inset:0;
-      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" stitchTiles="stitch"/></filter><rect width="240" height="240" filter="url(%23n)" opacity=".16"/></svg>');
-      mix-blend-mode:overlay;
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="220" height="220" filter="url(%23n)" opacity=".10"/></svg>');
+      mix-blend-mode:multiply;
       opacity:.35;
       pointer-events:none;
     }
@@ -61,11 +64,11 @@
     .grid{
       position:absolute; inset:-2px;
       background:
-        linear-gradient(to right, rgba(234,240,255,.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(234,240,255,.05) 1px, transparent 1px);
+        linear-gradient(to right, rgba(11,15,26,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(11,15,26,.05) 1px, transparent 1px);
       background-size: 26px 26px;
-      mask-image: radial-gradient(closest-side at 20% 0%, rgba(0,0,0,1), rgba(0,0,0,0) 70%);
-      opacity:.65;
+      mask-image: radial-gradient(closest-side at 20% 0%, rgba(0,0,0,1), rgba(0,0,0,0) 72%);
+      opacity:.40;
       pointer-events:none;
     }
 
@@ -90,16 +93,17 @@
       align-items:center;
       gap:8px;
       padding:8px 12px;
-      border:1px solid var(--line);
+      border:1px solid rgba(11,15,26,.14);
       border-radius:999px;
-      background: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(10px);
       font-size:12px;
       letter-spacing:.6px;
       color:var(--muted);
       width:fit-content;
     }
 
-    .dot{ width:8px; height:8px; border-radius:999px; background:var(--accent); box-shadow:0 0 20px rgba(108,240,255,.55); }
+    .dot{ width:8px; height:8px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 6px rgba(47,107,255,.12); }
 
     h1{
       margin:0;
@@ -119,20 +123,21 @@
     .qr{
       width:46mm;
       border-radius:18px;
-      border:1px dashed rgba(234,240,255,.28);
-      background:rgba(255,255,255,.03);
+      border:1px dashed rgba(11,15,26,.22);
+      background:rgba(255,255,255,.78);
       padding:12px;
     }
     .qrBox{
       height:36mm;
       border-radius:14px;
-      background:linear-gradient(180deg, rgba(234,240,255,.08), rgba(234,240,255,.02));
+      background:linear-gradient(180deg, rgba(11,15,26,.04), rgba(11,15,26,.01));
       display:flex;
       align-items:center;
       justify-content:center;
-      color:rgba(234,240,255,.55);
+      color:rgba(11,15,26,.58);
       font-size:12px;
       font-family:var(--mono);
+      border:1px solid rgba(11,15,26,.10);
     }
     .qrNote{ margin-top:8px; color:var(--muted2); font-size:11px; line-height:1.45; }
 
@@ -144,10 +149,11 @@
     }
 
     .card{
-      background:var(--card);
-      border:1px solid rgba(234,240,255,.10);
+      background:rgba(255,255,255,.86);
+      border:1px solid rgba(11,15,26,.10);
       border-radius:var(--radius);
       padding:14px 14px;
+      box-shadow: 0 10px 26px rgba(11,15,26,.06);
     }
 
     .kicker{
@@ -171,10 +177,10 @@
     b{ color:rgba(234,240,255,.95); }
 
     .pillRow{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
-    .pill{ padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.04); font-size:12px; color:rgba(234,240,255,.74); }
-    .pill.accent{ border-color: rgba(108,240,255,.35); color: rgba(108,240,255,.95); background: rgba(108,240,255,.08); }
-    .pill.accent2{ border-color: rgba(180,255,122,.30); color: rgba(180,255,122,.95); background: rgba(180,255,122,.08); }
-    .pill.warn{ border-color: rgba(255,184,107,.35); color: rgba(255,184,107,.95); background: rgba(255,184,107,.08); }
+    .pill{ padding:6px 10px; border-radius:999px; border:1px solid rgba(11,15,26,.14); background:rgba(255,255,255,.70); font-size:12px; color:rgba(11,15,26,.70); }
+    .pill.accent{ border-color: rgba(47,107,255,.35); color: rgba(47,107,255,.96); background: rgba(47,107,255,.08); }
+    .pill.accent2{ border-color: rgba(0,184,169,.30); color: rgba(0,184,169,.96); background: rgba(0,184,169,.08); }
+    .pill.warn{ border-color: rgba(255,122,24,.35); color: rgba(255,122,24,.96); background: rgba(255,122,24,.10); }
 
     .split{
       display:grid;
@@ -246,10 +252,10 @@
       <section class="top">
         <div class="brand">
           <div class="badge"><span class="dot"></span> Hackathon Recruiting · Agent Organ Hub</div>
-          <h1>让 OpenClaw<br/>从手机里“长出来”</h1>
+          <h1>让 OpenClaw<br/>从手机里「长出来」</h1>
           <p class="subtitle">
             一个现实世界的<strong>外置器官</strong>：能看、能听、能执行。<br/>
-            多源输入 → 意图理解 → 真实动作 → 声/光/屏的空间化交付。
+            把碎片输入变成可执行闭环，把输出从屏幕扩展到<strong>声/光/屏/动作</strong>。
           </p>
           <div class="pillRow">
             <span class="pill accent">L1 自动记录</span>
